@@ -11,43 +11,37 @@ class FastIO {
         bw = new BufferedWriter(new OutputStreamWriter(System.out));
     }
 
-    String next() {
+    String next() throws IOException {
         while (st == null || !st.hasMoreTokens()) {
-            try {
-                st = new StringTokenizer(br.readLine());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            st = new StringTokenizer(br.readLine());
         }
 
         return st.nextToken();
     }
 
-    int nextInt() {
+    int nextInt() throws IOException {
         return Integer.parseInt(next());
     }
 
-    long nextLong() {
+    long nextLong() throws IOException {
         return Long.parseLong(next());
     }
 
-    double nextDouble() {
+    double nextDouble() throws IOException {
         return Double.parseDouble(next());
     }
 
-    String nextLine() {
-        String str = null;
-        try {
-            str = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return str;
+    String nextLine() throws IOException {
+        return br.readLine();
     }
 
     void write(double d) throws IOException {
         bw.write(String.valueOf(d));
+        close();
+    }
+
+    void write(char c) throws IOException {
+        bw.write(c);
         close();
     }
 
